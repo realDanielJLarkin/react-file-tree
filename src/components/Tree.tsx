@@ -84,7 +84,7 @@ const fileTree: Level[] = [
   },
 ];
 
-const Level = ({ level, indent }: { level: Level; indent: number }) => {
+const Level = ({ level }: { level: Level }) => {
   const [openTree, setOpenTree] = useState(false);
   return (
     <div className=" w-[500px] overflow-hidden">
@@ -100,7 +100,7 @@ const Level = ({ level, indent }: { level: Level; indent: number }) => {
         <div>
           {level.children?.map((child) => (
             <div className={`pl-[25px]`}>
-              <Level level={child} indent={indent + 10} />
+              <Level level={child} />
             </div>
           ))}
         </div>
@@ -113,7 +113,7 @@ const Tree = () => {
   return (
     <div>
       {fileTree.map((level) => (
-        <Level level={level} indent={0} />
+        <Level level={level} />
       ))}
     </div>
   );
