@@ -98,8 +98,8 @@ const Level = ({ level }: { level: Level }) => {
       </div>
       {openTree && (
         <div>
-          {level.children?.map((child) => (
-            <div className={`pl-[25px]`}>
+          {level.children?.map((child, index) => (
+            <div className={`pl-[25px]`} key={index}>
               <Level level={child} />
             </div>
           ))}
@@ -112,8 +112,8 @@ const Level = ({ level }: { level: Level }) => {
 const Tree = () => {
   return (
     <div>
-      {fileTree.map((level) => (
-        <Level level={level} />
+      {fileTree.map((level, index) => (
+        <Level key={index} level={level} />
       ))}
     </div>
   );
